@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MvcEntityCompleto6.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastro de Pessoas</h1>
+
+<p>
+    <a asp-action="Create">Crie um novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apelido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.Id)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apelido)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" role="button" asp-route-id="@item.Id">Editar</a> 
+                <a class="btn btn-warning" asp-action="Details"  role="button" asp-route-id="@item.Id">Detalhes</a> 
+                <a class="btn btn-danger"  asp-action="Delete"  role="button" asp-route-id="@item.Id">Deletar</a>
+                
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
